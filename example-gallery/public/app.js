@@ -26,6 +26,9 @@ const elements = {
 };
 
 const DEFAULT_GALLERY_DPR = 1.5;
+// The Pages build provides a static manifest and prepared thumbnails instead
+// of the development server's discovery and screenshot endpoints.
+const STATIC_GALLERY = Boolean(window.__GALLERY_STATIC__);
 const OVERVIEW_THUMBNAIL_CONCURRENCY = 16;
 const OVERVIEW_THUMBNAIL_TIMEOUT_MS = 60000;
 
@@ -141,6 +144,7 @@ function updateDebugModes(example) {
 }
 
 function overviewThumbnailUrl(example) {
+  if (STATIC_GALLERY) return new URL(example.thumbnail, window.location.origin).href;
   const url = new URL("/api/thumbnail", window.location.origin);
   url.searchParams.set("example", example.id);
   return url.href;
@@ -490,7 +494,10 @@ function setRuntimeSummary(label, status = "idle") {
 
 async function loadExamples({ preserveSelection = true } = {}) {
   setRuntimeSummary("discovering", "loading");
-  const response = await fetch("/api/examples", { cache: "no-store" });
+  const endpoint = STATIC_GALLERY
+    ? `${window.__GALLERY_STATIC__.basePath}/api/examples.json`
+    : "/api/examples";
+  const response = await fetch(endpoint, { cache: "no-store" });
   if (!response.ok) {
     throw new Error(`Discovery failed with ${response.status}`);
   }

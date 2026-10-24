@@ -1,5 +1,7 @@
 # Three.js Awesome Graphics Agent Skills
 
+**[Browse the interactive example gallery on GitHub Pages](https://legerdo.github.io/Threejs-Awesome-Graphics-Agent-Skills/)** — explore the 49 included scenes, inspect effects, and open each example in a standalone viewer.
+
 [![GitHub stars](https://img.shields.io/github/stars/scottstts/Threejs-Awesome-Graphics-Agent-Skills?style=flat)](https://github.com/scottstts/Threejs-Awesome-Graphics-Agent-Skills/stargazers)
 [![npm version](https://img.shields.io/npm/v/threejs-awesome-graphics-agent-skills?style=flat)](https://www.npmjs.com/package/threejs-awesome-graphics-agent-skills)
 [![npm downloads](https://img.shields.io/npm/dm/threejs-awesome-graphics-agent-skills?style=flat)](https://www.npmjs.com/package/threejs-awesome-graphics-agent-skills)
@@ -117,6 +119,15 @@ Inspect every included graphics example from one development surface:
 ```sh
 npm run dev
 ```
+
+The GitHub Pages gallery is built from the same examples and ships a static
+manifest, version-specific Three.js import maps, transpiled TypeScript and
+shader modules, and scene assets. Rebuild it locally with `npm run build:pages`
+and validate the exported module graph with `npm run test:pages`. To refresh
+the gallery's thumbnail captures using installed Chrome, run
+`node scripts/capture-pages-thumbnails.mjs`; scene previews that cannot be
+captured use clearly labeled placeholders. WebGPU scenes require a supported
+browser and graphics backend.
 
 The gallery is meant for visual inspection of each example included in the 
 skill pack. The skills only include the implementation and assets for the example itself 

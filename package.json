@@ -48,6 +48,8 @@
     "dev": "node example-gallery/server.mjs --open",
     "dev:examples:no-open": "node example-gallery/server.mjs",
     "dev:examples:fixture": "node example-gallery/server.mjs --open --include-fixtures",
+    "build:pages": "node scripts/build-pages.mjs",
+    "test:pages": "node scripts/test-pages.mjs",
     "capture:examples": "node scripts/capture-examples.mjs",
     "test:references": "node scripts/test-reference-examples.mjs && node scripts/test-luminescent-examples.mjs",
     "test:routing": "node scripts/test-agent-routing.mjs",

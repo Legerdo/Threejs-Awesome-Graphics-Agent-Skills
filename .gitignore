@@ -12,4 +12,6 @@ source_materials/*
 node_modules/
 *.tgz
 .example-captures/
+.pages-dist/
+.pages-thumbnails/
 .claude/launch.json
